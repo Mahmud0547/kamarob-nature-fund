@@ -167,6 +167,29 @@ const TRANSLATIONS = {
       status_new: "New",
       status_read: "Read",
       status_replied: "Replied"
+    },
+    detail: {
+      loading_project:    "Loading project…",
+      loading_expedition: "Loading expedition…",
+      not_found_title:    "Project not found",
+      not_found_desc:     "This project may not be published yet, or the link is incorrect.",
+      not_found_exp_title:"Expedition not found",
+      not_found_exp_desc: "This expedition may not be published yet, or the link is incorrect.",
+      back_programs:      "Back to Programs",
+      back_expeditions:   "Back to Expeditions",
+      gallery:            "Gallery",
+      field_photos:       "Field Photos",
+      cta_title:          "Be part of this work",
+      cta_desc:           "Join our volunteers or partner with us to expand this program.",
+      cta_btn:            "Get Involved →",
+      exp_cta_title:      "Join the next expedition",
+      exp_cta_desc:       "We organise expeditions every spring and autumn. No experience needed.",
+      exp_cta_btn:        "Apply to Join →",
+      stat_elevation:     "Max elevation",
+      stat_distance:      "Distance",
+      stat_duration:      "Duration",
+      stat_participants:  "Participants",
+      content_note:       "Field reports are published in English"
     }
   },
 
@@ -331,6 +354,29 @@ const TRANSLATIONS = {
       status_new: "Новое",
       status_read: "Прочитано",
       status_replied: "Отвечено"
+    },
+    detail: {
+      loading_project:    "Загрузка проекта…",
+      loading_expedition: "Загрузка экспедиции…",
+      not_found_title:    "Проект не найден",
+      not_found_desc:     "Этот проект ещё не опубликован или ссылка неверна.",
+      not_found_exp_title:"Экспедиция не найдена",
+      not_found_exp_desc: "Эта экспедиция ещё не опубликована или ссылка неверна.",
+      back_programs:      "← Назад к программам",
+      back_expeditions:   "← Назад к экспедициям",
+      gallery:            "Галерея",
+      field_photos:       "Фото с поля",
+      cta_title:          "Станьте частью этой работы",
+      cta_desc:           "Присоединяйтесь к волонтёрам или станьте партнёром для развития этой программы.",
+      cta_btn:            "Участвовать →",
+      exp_cta_title:      "Присоединитесь к следующей экспедиции",
+      exp_cta_desc:       "Мы организуем экспедиции каждую весну и осень. Опыт не нужен.",
+      exp_cta_btn:        "Подать заявку →",
+      stat_elevation:     "Макс. высота",
+      stat_distance:      "Расстояние",
+      stat_duration:      "Длительность",
+      stat_participants:  "Участники",
+      content_note:       "Полевые отчёты публикуются на английском языке"
     }
   },
 
@@ -495,6 +541,29 @@ const TRANSLATIONS = {
       status_new: "Neu",
       status_read: "Gelesen",
       status_replied: "Beantwortet"
+    },
+    detail: {
+      loading_project:    "Projekt wird geladen…",
+      loading_expedition: "Expedition wird geladen…",
+      not_found_title:    "Projekt nicht gefunden",
+      not_found_desc:     "Dieses Projekt ist möglicherweise noch nicht veröffentlicht oder der Link ist falsch.",
+      not_found_exp_title:"Expedition nicht gefunden",
+      not_found_exp_desc: "Diese Expedition ist möglicherweise noch nicht veröffentlicht.",
+      back_programs:      "← Zurück zu Programmen",
+      back_expeditions:   "← Zurück zu Expeditionen",
+      gallery:            "Galerie",
+      field_photos:       "Feldfotos",
+      cta_title:          "Teil dieser Arbeit werden",
+      cta_desc:           "Schließen Sie sich unseren Freiwilligen an oder werden Sie Partner, um dieses Programm zu erweitern.",
+      cta_btn:            "Mitmachen →",
+      exp_cta_title:      "An der nächsten Expedition teilnehmen",
+      exp_cta_desc:       "Wir organisieren Expeditionen jeden Frühling und Herbst. Keine Erfahrung nötig.",
+      exp_cta_btn:        "Bewerbung einreichen →",
+      stat_elevation:     "Max. Höhe",
+      stat_distance:      "Distanz",
+      stat_duration:      "Dauer",
+      stat_participants:  "Teilnehmer",
+      content_note:       "Feldberichte werden auf Englisch veröffentlicht"
     }
   },
 
@@ -659,6 +728,29 @@ const TRANSLATIONS = {
       status_new: "Нав",
       status_read: "Хонда шуд",
       status_replied: "Ҷавоб дода шуд"
+    },
+    detail: {
+      loading_project:    "Лоиҳа бор карда мешавад…",
+      loading_expedition: "Экспедитсия бор карда мешавад…",
+      not_found_title:    "Лоиҳа ёфт нашуд",
+      not_found_desc:     "Ин лоиҳа ҳанӯз нашр нашудааст ё пайванд нодуруст аст.",
+      not_found_exp_title:"Экспедитсия ёфт нашуд",
+      not_found_exp_desc: "Ин экспедитсия ҳанӯз нашр нашудааст.",
+      back_programs:      "← Ба барномаҳо",
+      back_expeditions:   "← Ба экспедитсияҳо",
+      gallery:            "Галерея",
+      field_photos:       "Аксҳои саҳроӣ",
+      cta_title:          "Як қисми ин кор шавед",
+      cta_desc:           "Ба ихтиёркорон ҳамроҳ шавед ё шарик шавед.",
+      cta_btn:            "Иштирок кардан →",
+      exp_cta_title:      "Ба экспедитсияи оянда ҳамроҳ шавед",
+      exp_cta_desc:       "Мо ҳар баҳор ва тирамоҳ экспедитсия ташкил мекунем.",
+      exp_cta_btn:        "Дархост кунед →",
+      stat_elevation:     "Баландии макс.",
+      stat_distance:      "Масофа",
+      stat_duration:      "Муддат",
+      stat_participants:  "Иштирокчиён",
+      content_note:       "Гузоришҳои саҳроӣ ба забони англисӣ нашр мешаванд"
     }
   }
 };

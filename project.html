@@ -38,14 +38,14 @@
 <!-- ═══════ LOADING STATE ═══════ -->
 <div id="loadingWrap" class="detail-loading-wrap" style="padding-top:6rem;">
   <div class="detail-spinner"></div>
-  <p style="color:var(--muted);font-size:.9rem;">Loading project…</p>
+  <p style="color:var(--muted);font-size:.9rem;" data-i18n="detail.loading_project">Loading project…</p>
 </div>
 
 <!-- ═══════ ERROR STATE (hidden initially) ═══════ -->
 <div id="errorWrap" class="detail-error" style="display:none;padding-top:8rem;">
-  <h2>Project not found</h2>
-  <p style="margin-bottom:1.5rem;">This project may not be published yet, or the link is incorrect.</p>
-  <a href="index.html#programs" class="btn-accent">← Back to Programs</a>
+  <h2 data-i18n="detail.not_found_title">Project not found</h2>
+  <p style="margin-bottom:1.5rem;" data-i18n="detail.not_found_desc">This project may not be published yet, or the link is incorrect.</p>
+  <a href="index.html#programs" class="btn-accent" data-i18n="detail.back_programs">← Back to Programs</a>
 </div>
 
 <!-- ═══════ MAIN CONTENT (hidden until data loads) ═══════ -->
@@ -77,15 +77,15 @@
 
     <!-- Gallery -->
     <div class="detail-gallery" id="projectGallery" style="display:none;">
-      <h2>Gallery</h2>
+      <h2 data-i18n="detail.gallery">Gallery</h2>
       <div class="detail-gallery-grid" id="galleryGrid"></div>
     </div>
 
     <!-- CTA -->
     <div class="detail-cta">
-      <h3>Be part of this work</h3>
-      <p>Join our volunteers or partner with us to expand this program.</p>
-      <a href="index.html#contact" class="btn-accent">Get Involved →</a>
+      <h3 data-i18n="detail.cta_title">Be part of this work</h3>
+      <p data-i18n="detail.cta_desc">Join our volunteers or partner with us to expand this program.</p>
+      <a href="index.html#contact" class="btn-accent" data-i18n="detail.cta_btn">Get Involved →</a>
     </div>
 
   </main>
@@ -224,6 +224,14 @@ function renderProject(p) {
     ).join('');
     galleryEl.style.display = '';
   }
+
+  /* Content language note */
+  const t = (k) => window.i18n ? window.i18n.t(k) : k;
+  const noteEl = document.createElement('p');
+  noteEl.style.cssText = 'font-size:.78rem;color:var(--muted);margin-top:2rem;font-style:italic;';
+  noteEl.setAttribute('data-i18n', 'detail.content_note');
+  noteEl.textContent = t('detail.content_note');
+  document.getElementById('projectContent').after(noteEl);
 
   /* Show page */
   document.getElementById('loadingWrap').style.display = 'none';
