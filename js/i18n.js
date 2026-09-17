@@ -666,7 +666,8 @@ const TRANSLATIONS = {
 /* ── i18n Engine ──────────────────────────────── */
 const i18n = (() => {
   const LANG_KEY = 'knf_lang';
-  let currentLang = localStorage.getItem(LANG_KEY) || 'en';
+  let currentLang = 'en';
+  try { currentLang = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
 
   /**
    * Deep-get a translation key like 'hero.title'
@@ -712,7 +713,7 @@ const i18n = (() => {
   function setLang(lang) {
     if (!TRANSLATIONS[lang]) return;
     currentLang = lang;
-    localStorage.setItem(LANG_KEY, lang);
+    try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
     apply();
   }
 
