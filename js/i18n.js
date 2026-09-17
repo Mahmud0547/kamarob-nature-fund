@@ -365,7 +365,7 @@ const TRANSLATIONS = {
       title: "Die <em>Kamarob-Schlucht</em> braucht eine Stimme.",
       p1: "Das Rasht-Tal erstreckt sich durch das Herz Tadschikistans — eine Landschaft aus Gletscherströmen, alten Wacholderwäldern und Nomadenpfaden, die seit Jahrtausenden existieren. Klimawandel und Abholzung vernichten sie innerhalb von Jahrzehnten.",
       p2: "Der Kamarob Nature Fund wurde von Menschen gegründet, die diese Berge bewandert, aus diesen Quellen getrunken und sich geweigert haben, schweigend zuzuschauen.",
-      quote: "„Wenn man 3 km über dem Dorf Shukmak steht und die Schlucht von oben sieht, begreift man: Das darf nicht verschwinden."",
+      quote: '„Wenn man 3 km über dem Dorf Shukmak steht und die Schlucht von oben sieht, begreift man: Das darf nicht verschwinden."',
       p1_forest: "Waldwiederherstellung",
       d1_forest: "Wiederanpflanzung heimischer Wacholder- und Walnussarten auf degradierten Hängen.",
       p2_water: "Zugang zu sauberem Wasser",
@@ -394,7 +394,7 @@ const TRANSLATIONS = {
       p1: "Im Sommer 2023 wanderte eine kleine Gruppe von Freunden aus Duschanbe zu einem Kamm oberhalb des Dorfes Shukmak im Rasht-Distrikt. Sie tranken Wasser aus einer natürlichen Quelle, aßen Wildbeeren und beobachteten, wie ein Steinadler unter ihnen kreiste.",
       p2: "Sie sahen auch verbrannte Hänge, ein ausgetrocknetes Flussbett, von dem Einheimische sagten, es „floss früher den ganzen Sommer", und Plastikmüll drei Stunden vom nächsten Weg entfernt.",
       p3: "Heute arbeitet unser Kernteam von 12 Personen ganzjährig mit 320 Freiwilligen aus 8 Ländern zum Schutz von 3.200 Hektar Hochlandterrain.",
-      quote: "„Wir kommen nicht aus NGO-Büros. Wir kommen aus diesen Tälern. Das ist der Unterschied."",
+      quote: '„Wir kommen nicht aus NGO-Büros. Wir kommen aus diesen Tälern. Das ist der Unterschied."',
       btn: "Team beitreten →"
     },
     gallery: {
