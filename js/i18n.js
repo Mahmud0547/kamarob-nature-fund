@@ -392,7 +392,7 @@ const TRANSLATIONS = {
       tag: "Unsere Geschichte",
       title: "Geboren aus einem <em>3-km-Aufstieg</em>.",
       p1: "Im Sommer 2023 wanderte eine kleine Gruppe von Freunden aus Duschanbe zu einem Kamm oberhalb des Dorfes Shukmak im Rasht-Distrikt. Sie tranken Wasser aus einer natürlichen Quelle, aßen Wildbeeren und beobachteten, wie ein Steinadler unter ihnen kreiste.",
-      p2: "Sie sahen auch verbrannte Hänge, ein ausgetrocknetes Flussbett, von dem Einheimische sagten, es „floss früher den ganzen Sommer", und Plastikmüll drei Stunden vom nächsten Weg entfernt.",
+      p2: 'Sie sahen auch verbrannte Hänge, ein ausgetrocknetes Flussbett, von dem Einheimische sagten, es \"floss früher den ganzen Sommer\", und Plastikmüll drei Stunden vom nächsten Weg entfernt.',
       p3: "Heute arbeitet unser Kernteam von 12 Personen ganzjährig mit 320 Freiwilligen aus 8 Ländern zum Schutz von 3.200 Hektar Hochlandterrain.",
       quote: '„Wir kommen nicht aus NGO-Büros. Wir kommen aus diesen Tälern. Das ist der Unterschied."',
       btn: "Team beitreten →"
