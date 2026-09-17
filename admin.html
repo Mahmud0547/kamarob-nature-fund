@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel — Kamarob Nature Fund</title>
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles (external file) -->
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<!-- Access denied (shown if not admin) -->
+<div id="accessDenied" class="access-denied" style="display:none;">
+  <div class="icon">🔐</div>
+  <h2>Access Denied</h2>
+  <p>This area is restricted to administrators only. Please sign in with an admin account.</p>
+  <a href="auth.html" class="btn btn-primary" style="text-decoration:none;margin-top:1rem;">← Sign In</a>
+</div>
+
+<!-- Admin UI (hidden until auth verified) -->
+<div id="adminUI" style="display:none; width:100%;">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" aria-label="Admin navigation">
+    <div class="sidebar-logo">
+      <a href="index.html">🌿 Kamarob <em>Nature</em></a>
+      <span>Admin Panel</span>
+    </div>
+
+    <button class="nav-item active" onclick="showPanel('dashboard')" aria-current="page">
+      <span class="icon">📊</span><span>Dashboard</span>
+    </button>
+    <button class="nav-item" onclick="showPanel('projects')">
+      <span class="icon">📁</span><span>Projects</span>
+    </button>
+    <button class="nav-item" onclick="showPanel('expeditions')">
+      <span class="icon">🏔️</span><span>Expeditions</span>
+    </button>
+    <button class="nav-item" onclick="showPanel('contacts')">
+      <span class="icon">✉️</span><span>Messages</span>
+    </button>
+    <button class="nav-item" onclick="showPanel('users')">
+      <span class="icon">👥</span><span>Users</span>
+    </button>
+    <button class="nav-item" onclick="window.open('index.html','_blank')">
+      <span class="icon">🌐</span><span>View Site</span>
+    </button>
+
+    <div class="sidebar-bottom">
+      <div class="user-info">
+        <div class="user-avatar" id="userInitial">M</div>
+        <div>
+          <div class="user-name" id="userName">Admin</div>
+          <div class="user-role">Administrator</div>
+        </div>
+      </div>
+      <button class="logout-btn" onclick="logout()">Sign Out</button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <div class="topbar">
+      <h1 id="topbarTitle">Dashboard</h1>
+      <div class="topbar-right">
+        <button class="btn btn-primary" id="primaryAction" onclick="openModal('project')" style="display:none;">+ New Project</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- DASHBOARD -->
+      <div class="panel active" id="panel-dashboard">
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-num" id="stat-projects">—</div>
+            <div class="stat-label">Total Projects</div>
+            <div class="stat-trend trend-up">↑ All time</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-expeditions">—</div>
+            <div class="stat-label">Expeditions</div>
+            <div class="stat-trend trend-up">↑ All time</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-messages">—</div>
+            <div class="stat-label">New Messages</div>
+            <div class="stat-trend" id="stat-messages-trend">Unread</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-users">—</div>
+            <div class="stat-label">Registered Users</div>
+            <div class="stat-trend trend-up">↑ Total</div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <div class="table-header">
+            <h3>Recent Messages</h3>
+            <button class="btn btn-outline btn-sm" onclick="showPanel('contacts')">View all →</button>
+          </div>
+          <table aria-label="Recent contact messages">
+            <thead><tr><th>From</th><th>Subject</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody id="recent-contacts-body">
+              <tr><td colspan="4" class="empty">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="panel" id="panel-projects">
+        <div class="table-wrap">
+          <div class="table-header">
+            <h3>All Projects</h3>
+            <div style="display:flex;gap:.7rem;">
+              <input type="search" class="search-input" placeholder="Search…" oninput="filterTable('projects-body', this.value)" />
+              <button class="btn btn-primary btn-sm" onclick="openModal('project')">+ New</button>
+            </div>
+          </div>
+          <table aria-label="Projects list">
+            <thead><tr><th>Title</th><th>Category</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody id="projects-body"><tr><td colspan="5" class="empty">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EXPEDITIONS -->
+      <div class="panel" id="panel-expeditions">
+        <div class="table-wrap">
+          <div class="table-header">
+            <h3>All Expeditions</h3>
+            <div style="display:flex;gap:.7rem;">
+              <input type="search" class="search-input" placeholder="Search…" oninput="filterTable('expeditions-body', this.value)" />
+              <button class="btn btn-primary btn-sm" onclick="openModal('expedition')">+ New</button>
+            </div>
+          </div>
+          <table aria-label="Expeditions list">
+            <thead><tr><th>Title</th><th>Location</th><th>Elevation</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="expeditions-body"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CONTACTS -->
+      <div class="panel" id="panel-contacts">
+        <div class="table-wrap">
+          <div class="table-header">
+            <h3>Contact Submissions</h3>
+            <input type="search" class="search-input" placeholder="Search…" oninput="filterTable('contacts-body', this.value)" />
+          </div>
+          <table aria-label="Contact submissions">
+            <thead><tr><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody id="contacts-body"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- USERS -->
+      <div class="panel" id="panel-users">
+        <div class="table-wrap">
+          <div class="table-header">
+            <h3>Registered Users</h3>
+            <input type="search" class="search-input" placeholder="Search…" oninput="filterTable('users-body', this.value)" />
+          </div>
+          <table aria-label="Users list">
+            <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th><th>Actions</th></tr></thead>
+            <tbody id="users-body"><tr><td colspan="5" class="empty">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /adminUI -->
+
+<!-- MODAL: Create/Edit Project -->
+<div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+  <div class="modal">
+    <h2 id="modal-project-title">New Project</h2>
+    <form id="projectForm">
+      <input type="hidden" id="pf-id" />
+      <div class="form-group"><label>Title *</label><input type="text" id="pf-title" required maxlength="200" /></div>
+      <div class="form-group"><label>Slug (URL identifier) *</label><input type="text" id="pf-slug" required maxlength="100" placeholder="e.g. shukmak-springs-2025" /></div>
+      <div class="form-group"><label>Category</label>
+        <select id="pf-cat">
+          <option value="forest">Forest Restoration</option>
+          <option value="water">Water</option>
+          <option value="wildlife">Wildlife</option>
+          <option value="ecotourism">Ecotourism</option>
+          <option value="community">Community</option>
+          <option value="general">General</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Short Description</label><textarea id="pf-desc" rows="2" maxlength="400"></textarea></div>
+      <div class="form-group"><label>Full Content (Markdown)</label><textarea id="pf-content" rows="6" placeholder="## Overview&#10;Write full article in Markdown…"></textarea></div>
+      <div class="form-group"><label>Cover Image URL</label><input type="url" id="pf-img" placeholder="https://…" /></div>
+      <div class="form-group"><label>Tags (comma-separated)</label><input type="text" id="pf-tags" placeholder="forest, volunteers, Kamarob" /></div>
+      <div class="form-group" style="flex-direction:row;align-items:center;gap:.8rem;">
+        <label style="margin:0;">Published</label>
+        <input type="checkbox" id="pf-published" style="width:auto;" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('projectModal')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Project</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: Create/Edit Expedition -->
+<div class="modal-backdrop" id="expeditionModal" role="dialog" aria-modal="true" aria-labelledby="modal-exp-title">
+  <div class="modal">
+    <h2 id="modal-exp-title">New Expedition</h2>
+    <form id="expeditionForm">
+      <input type="hidden" id="ef-id" />
+      <div class="form-group"><label>Title *</label><input type="text" id="ef-title" required maxlength="200" /></div>
+      <div class="form-group"><label>Slug *</label><input type="text" id="ef-slug" required maxlength="100" /></div>
+      <div class="form-group"><label>Location</label><input type="text" id="ef-location" placeholder="Kamarob Gorge, Rasht Valley" /></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+        <div class="form-group"><label>Elevation (m)</label><input type="number" id="ef-elevation" min="0" max="9000" /></div>
+        <div class="form-group"><label>Distance (km)</label><input type="number" id="ef-distance" step=".1" /></div>
+        <div class="form-group"><label>Duration (days)</label><input type="number" id="ef-duration" min="1" /></div>
+      </div>
+      <div class="form-group"><label>Date</label><input type="date" id="ef-date" /></div>
+      <div class="form-group"><label>Description</label><textarea id="ef-desc" rows="3"></textarea></div>
+      <div class="form-group"><label>Full Content (Markdown)</label><textarea id="ef-content" rows="5"></textarea></div>
+      <div class="form-group" style="flex-direction:row;align-items:center;gap:.8rem;">
+        <label style="margin:0;">Published</label>
+        <input type="checkbox" id="ef-published" style="width:auto;" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('expeditionModal')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Expedition</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- ═══════ SCRIPTS ═══════ -->
+<!-- Admin logic (ES Module) -->
+<script type="module" src="js/admin.js"></script>
+
+</body>
+</html>

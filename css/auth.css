@@ -1,0 +1,292 @@
+/* ═══════════════════════════════════════════════
+   auth.css — Kamarob Nature Fund
+   Login / Registration page styles
+   ═══════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0b160d;
+  --bg2:      #111e13;
+  --green:    #2a5c24;
+  --accent:   #6db840;
+  --gold:     #c9a227;
+  --text:     #ddebd8;
+  --muted:    #7a9b76;
+  --white:    #f0f5ee;
+  --card-bg:  rgba(18, 34, 16, .85);
+  --radius:   16px;
+  --tr:       .3s ease;
+}
+
+html { height: 100%; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  display: flex;
+  align-items: stretch;
+}
+
+/* ── Split layout ──────────────────────────── */
+.auth-left {
+  flex: 1;
+  display: none;
+  background: url('../images/photo9.jpg') center/cover no-repeat;
+  position: relative;
+  min-height: 100vh;
+}
+.auth-left::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11,22,13,.8) 0%, rgba(11,22,13,.3) 100%);
+}
+.auth-left-content {
+  position: relative;
+  z-index: 1;
+  padding: 3rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.auth-left-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: .8rem;
+}
+.auth-left-content p {
+  color: rgba(255,255,255,.65);
+  font-size: .95rem;
+  max-width: 340px;
+  line-height: 1.7;
+}
+
+@media (min-width: 900px) {
+  .auth-left { display: flex; }
+}
+
+.auth-right {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background: var(--bg2);
+}
+
+@media (min-width: 900px) {
+  .auth-right { min-height: 100vh; padding: 4rem 3rem; }
+}
+
+/* ── Brand ─────────────────────────────────── */
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 2.5rem;
+}
+.auth-brand a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+}
+.auth-brand em { color: var(--accent); font-style: normal; }
+
+/* ── Card ──────────────────────────────────── */
+.auth-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(109,184,64,.15);
+  border-radius: var(--radius);
+  padding: 2.2rem;
+  backdrop-filter: blur(12px);
+}
+
+.auth-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: .4rem;
+}
+.auth-sub {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Tabs ──────────────────────────────────── */
+.auth-tabs {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 1.8rem;
+  background: rgba(0,0,0,.2);
+  padding: .3rem;
+  border-radius: 10px;
+}
+.auth-tab {
+  flex: 1;
+  text-align: center;
+  padding: .6rem;
+  border-radius: 8px;
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  transition: all var(--tr);
+  font-family: 'Inter', sans-serif;
+}
+.auth-tab.active { background: var(--accent); color: var(--bg); }
+
+/* ── Form groups ───────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  margin-bottom: 1.1rem;
+}
+.form-group label {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+.form-group input {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(109,184,64,.18);
+  border-radius: 9px;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: .95rem;
+  padding: .8rem 1rem;
+  outline: none;
+  transition: border-color var(--tr), box-shadow var(--tr);
+}
+.form-group input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(109,184,64,.15);
+}
+.form-group input::placeholder { color: rgba(255,255,255,.2); }
+.form-group input:focus-visible { outline: none; }
+
+/* ── Password strength meter ───────────────── */
+.pw-strength {
+  display: flex;
+  gap: .3rem;
+  margin-top: .4rem;
+  height: 3px;
+}
+.pw-bar {
+  flex: 1;
+  border-radius: 2px;
+  background: rgba(255,255,255,.08);
+  transition: background .3s;
+}
+.pw-bar.weak   { background: #e05a5a; }
+.pw-bar.fair   { background: var(--gold); }
+.pw-bar.strong { background: var(--accent); }
+.pw-label {
+  font-size: .74rem;
+  color: var(--muted);
+  margin-top: .3rem;
+}
+
+/* ── Submit button ─────────────────────────── */
+.form-submit {
+  width: 100%;
+  padding: .9rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: .97rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--tr);
+  margin-top: .5rem;
+}
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(109,184,64,.4);
+}
+.form-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* ── Messages ──────────────────────────────── */
+#auth-msg {
+  margin-top: .8rem;
+  text-align: center;
+  font-size: .85rem;
+  color: var(--accent);
+  min-height: 1.1em;
+}
+#auth-msg.error { color: #e05a5a; }
+
+/* ── Divider ───────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin: 1.4rem 0;
+  color: var(--muted);
+  font-size: .82rem;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,.08);
+}
+
+/* ── Email verification panel ──────────────── */
+.verify-panel { text-align: center; padding: 1.5rem 0; }
+.verify-icon  { font-size: 3.5rem; margin-bottom: 1rem; }
+.verify-panel h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: .6rem;
+}
+.verify-panel p { color: var(--muted); font-size: .92rem; line-height: 1.6; }
+.verify-panel .btn-back {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: .88rem;
+  color: var(--accent);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Domain warning ────────────────────────── */
+.domain-warn {
+  font-size: .78rem;
+  margin-top: .3rem;
+  color: #e8b84b;
+  display: none;
+}
+.domain-warn.show { display: block; }
+
+/* ── Security info box ─────────────────────── */
+.security-info {
+  margin-top: 1.5rem;
+  padding: .9rem 1.1rem;
+  background: rgba(109,184,64,.05);
+  border: 1px solid rgba(109,184,64,.15);
+  border-radius: 10px;
+  font-size: .78rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.security-info strong { color: var(--accent); }

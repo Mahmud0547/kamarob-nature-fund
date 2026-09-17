@@ -1,0 +1,24 @@
+# ─── НИКОГДА не публикуй эти файлы ───────────────────
+# Если создашь файл с реальными ключами — добавь его сюда
+.env
+.env.local
+.env.production
+secrets.js
+config.secret.js
+
+# Supabase service role key (если вдруг сохранишь отдельно)
+supabase-service-key.txt
+
+# macOS системные файлы
+.DS_Store
+
+# Логи
+*.log
+
+# node_modules (если когда-нибудь используешь npm)
+node_modules/
+
+# ─── Эти файлы публиковать МОЖНО ────────────────────
+# js/main.js    ← anon ключ — безопасен публично
+# js/auth.js    ← anon ключ — безопасен публично
+# js/admin.js   ← anon ключ — безопасен публично

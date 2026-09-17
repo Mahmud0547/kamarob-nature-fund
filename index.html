@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kamarob Nature Fund — Protecting Tajikistan's Highlands</title>
+  <meta name="description" content="We protect the Kamarob Gorge in Tajikistan's Rasht Valley — preserving forests, clean water, and wildlife corridors for future generations." />
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles (external file) -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<!-- Skip navigation (accessibility) -->
+<a href="#main-content" class="skip-link" data-i18n="a11y.skip">Skip to main content</a>
+
+<!-- Decorative particles -->
+<div class="particles" aria-hidden="true">
+  <div class="particle" style="left:8%;  --dur:14s; --delay:0s;   --dx:20px;"></div>
+  <div class="particle" style="left:22%; --dur:11s; --delay:2s;   --dx:-28px;"></div>
+  <div class="particle" style="left:38%; --dur:16s; --delay:4s;   --dx:22px;"></div>
+  <div class="particle" style="left:55%; --dur:13s; --delay:1s;   --dx:-18px;"></div>
+  <div class="particle" style="left:72%; --dur:15s; --delay:3s;   --dx:32px;"></div>
+  <div class="particle" style="left:88%; --dur:12s; --delay:5s;   --dx:-14px;"></div>
+  <div class="particle" style="left:4%;  --dur:18s; --delay:6s;   --dx:38px;"></div>
+  <div class="particle" style="left:93%; --dur:10s; --delay:1.5s; --dx:-22px;"></div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button id="lb-close" aria-label="Close">×</button>
+  <button id="lb-prev" aria-label="Previous">‹</button>
+  <img id="lb-img" src="" alt="" />
+  <button id="lb-next" aria-label="Next">›</button>
+</div>
+
+<!-- Toast notification -->
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══════ NAV ═══════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#hero" class="nav-logo">🌿 Kamarob <em>Nature</em></a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#mission"     data-i18n="nav.mission">Mission</a>
+    <a href="#programs"    data-i18n="nav.programs">Programs</a>
+    <a href="#expeditions" data-i18n="nav.expeditions">Expeditions</a>
+    <a href="#gallery"     data-i18n="nav.gallery">Gallery</a>
+    <a href="#contact"     data-i18n="nav.contact" class="nav-cta">Contact Us</a>
+
+    <!-- Language switcher -->
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="en" onclick="i18n.setLang('en')" aria-label="English">EN</button>
+      <button class="lang-btn" data-lang="ru" onclick="i18n.setLang('ru')" aria-label="Русский">RU</button>
+      <button class="lang-btn" data-lang="de" onclick="i18n.setLang('de')" aria-label="Deutsch">DE</button>
+      <button class="lang-btn" data-lang="tj" onclick="i18n.setLang('tj')" aria-label="Тоҷикӣ">TJ</button>
+    </div>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section id="hero" aria-label="Hero" tabindex="-1">
+  <div class="hero-video-wrap">
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true" id="heroVideo">
+      <source src="videos/video1.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content" id="main-content">
+    <div class="hero-tag" data-i18n="hero.tag">Rasht Valley, Tajikistan · 3,000 m</div>
+    <h1 class="hero-title" data-i18n="hero.title">
+      Protect the <em>Highlands.</em><br>Restore the Future.
+    </h1>
+    <p class="hero-sub" data-i18n="hero.sub">
+      We work in the Kamarob Gorge to preserve clean water, protect forests, and empower local communities.
+    </p>
+    <div class="hero-btns">
+      <a href="#programs" class="btn btn-primary" data-i18n="hero.btn_programs">Our Programs</a>
+      <a href="#contact"  class="btn btn-outline"  data-i18n="hero.btn_involve">Get Involved</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true"><div class="line"></div><span>Scroll</span></div>
+</section>
+
+<!-- ═══════ STATS ═══════ -->
+<section id="stats" aria-label="Impact statistics">
+  <div class="stat-item reveal">
+    <div class="stat-num" data-target="12400">0<sup>+</sup></div>
+    <div class="stat-label" data-i18n="stats.trees">Trees Planted</div>
+  </div>
+  <div class="stat-item reveal delay-1">
+    <div class="stat-num" data-target="3200">0<sup> ha</sup></div>
+    <div class="stat-label" data-i18n="stats.land">Protected Land</div>
+  </div>
+  <div class="stat-item reveal delay-2">
+    <div class="stat-num" data-target="48">0</div>
+    <div class="stat-label" data-i18n="stats.villages">Partner Villages</div>
+  </div>
+  <div class="stat-item reveal delay-3">
+    <div class="stat-num" data-target="320">0<sup>+</sup></div>
+    <div class="stat-label" data-i18n="stats.volunteers">Active Volunteers</div>
+  </div>
+</section>
+
+<!-- ═══════ MISSION ═══════ -->
+<section id="mission">
+  <div class="section-inner">
+    <div class="mission-grid">
+      <div class="reveal-left">
+        <div class="section-tag" data-i18n="mission.tag">Why We Exist</div>
+        <h2 class="section-title" data-i18n="mission.title">The <em>Kamarob Gorge</em> needs a voice.</h2>
+        <p data-i18n="mission.p1">The Rasht Valley stretches through the heart of Tajikistan…</p>
+        <p data-i18n="mission.p2">Kamarob Nature Fund was founded by people who walked these mountains…</p>
+        <blockquote class="quote" data-i18n="mission.quote">"When you climb 3 km above Shukmak village…"</blockquote>
+      </div>
+      <div class="mission-pillars reveal-right">
+        <article class="pillar">
+          <div class="pillar-icon" aria-hidden="true">🌲</div>
+          <div><h3 data-i18n="mission.p1_forest">Forest Restoration</h3><p data-i18n="mission.d1_forest">Replanting native juniper…</p></div>
+        </article>
+        <article class="pillar">
+          <div class="pillar-icon" aria-hidden="true">💧</div>
+          <div><h3 data-i18n="mission.p2_water">Clean Water Access</h3><p data-i18n="mission.d2_water">Protecting mountain springs…</p></div>
+        </article>
+        <article class="pillar">
+          <div class="pillar-icon" aria-hidden="true">🦅</div>
+          <div><h3 data-i18n="mission.p3_wild">Wildlife Corridors</h3><p data-i18n="mission.d3_wild">Mapping migration routes…</p></div>
+        </article>
+        <article class="pillar">
+          <div class="pillar-icon" aria-hidden="true">👥</div>
+          <div><h3 data-i18n="mission.p4_comm">Community Empowerment</h3><p data-i18n="mission.d4_comm">Training local rangers…</p></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROGRAMS ═══════ -->
+<section id="programs">
+  <div class="section-inner">
+    <div class="section-tag reveal" data-i18n="programs.tag">Active Programs</div>
+    <h2 class="section-title reveal" data-i18n="programs.title">What We <em>Do</em></h2>
+    <div class="programs-grid">
+      <article class="program-card reveal delay-1">
+        <img class="program-img" src="images/photo6.jpg" alt="Mountain spring in Kamarob Valley" loading="lazy" width="600" height="210" />
+        <div class="program-body">
+          <span class="program-badge" data-i18n="programs.p1_badge">Water</span>
+          <h3 data-i18n="programs.p1_title">Shukmak Spring Network</h3>
+          <p data-i18n="programs.p1_desc">We map, test, and protect 17 natural springs above Shukmak village.</p>
+        </div>
+      </article>
+      <article class="program-card reveal delay-2">
+        <img class="program-img" src="images/photo4.jpg" alt="Reforestation in Rasht highlands" loading="lazy" width="600" height="210" />
+        <div class="program-body">
+          <span class="program-badge" data-i18n="programs.p2_badge">Forests</span>
+          <h3 data-i18n="programs.p2_title">Highland Reforestation</h3>
+          <p data-i18n="programs.p2_desc">Volunteers climb to 2,500–3,000 m to plant native saplings.</p>
+        </div>
+      </article>
+      <article class="program-card reveal delay-3">
+        <img class="program-img" src="images/photo10.jpg" alt="Mountain trail in Kamarob" loading="lazy" width="600" height="210" />
+        <div class="program-body">
+          <span class="program-badge" data-i18n="programs.p3_badge">Ecotourism</span>
+          <h3 data-i18n="programs.p3_title">Kamarob Trail Project</h3>
+          <p data-i18n="programs.p3_desc">Developing marked hiking trails through the gorge.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-photos reveal-left">
+        <img src="images/photo3.jpg" alt="Overlooking Kamarob Valley" loading="lazy" width="800" height="250" />
+        <img src="images/photo5.jpg" alt="Resting above the gorge"    loading="lazy" width="400" height="170" />
+        <img src="images/photo7.jpg" alt="Stream in mountain valley"  loading="lazy" width="400" height="170" />
+      </div>
+      <div class="reveal-right">
+        <div class="section-tag" data-i18n="about.tag">Our Story</div>
+        <h2 class="section-title" data-i18n="about.title">Born from a <em>3 km climb</em>.</h2>
+        <p data-i18n="about.p1">In the summer of 2023, a small group of friends from Dushanbe…</p>
+        <p data-i18n="about.p2">They also saw burned hillsides, a dried streambed…</p>
+        <p data-i18n="about.p3">Today our core team of 12 works year-round…</p>
+        <blockquote class="quote" data-i18n="about.quote">"We don't come from NGO offices…"</blockquote>
+        <a href="#contact" class="btn btn-outline" style="margin-top:1.8rem;display:inline-flex;" data-i18n="about.btn">Join Our Team →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ VIDEO SECTION ═══════ -->
+<section id="video-section">
+  <div class="section-inner">
+    <div class="section-tag reveal">📹 Field Footage</div>
+    <h2 class="section-title reveal">The <em>Kamarob</em> in Motion</h2>
+    <p class="section-sub reveal">Recorded at the natural springs and waterfalls near Shukmak village, Rasht Valley — 3,000 m above sea level.</p>
+    <div class="video-grid" style="margin-top:2.5rem;">
+      <div class="video-wrap reveal delay-1">
+        <video controls preload="metadata" aria-label="Mountain spring video">
+          <source src="videos/video1.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="video-caption">
+          <h4>Natural Springs — Kamarob Gorge</h4>
+          <p>Multiple springs merging at ~2,800 m. Water flows year-round from glacial melt and bedrock aquifers.</p>
+        </div>
+      </div>
+      <div class="video-wrap reveal delay-2">
+        <video controls preload="metadata" aria-label="Waterfall video">
+          <source src="videos/video2.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="video-caption">
+          <h4>Drinking from the Source</h4>
+          <p>Unfiltered spring water at the Shukmak ridge. Tested clean — pH 7.2, zero coliform bacteria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GALLERY ═══════ -->
+<section id="gallery">
+  <div class="section-inner">
+    <div class="section-tag reveal" data-i18n="gallery.tag">From the Field</div>
+    <h2 class="section-title reveal" data-i18n="gallery.title">The <em>Mountains</em> We Protect</h2>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item gi-wide gi-tall reveal delay-1" data-src="images/hero.jpg"    tabindex="0" role="button" aria-label="Open image: Summit view">
+        <img src="images/hero.jpg"    alt="Standing above Kamarob Gorge at 3,000 m"          loading="lazy" /><div class="overlay"><span class="overlay-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="gallery-item reveal delay-2" data-src="images/photo2.jpg"  tabindex="0" role="button" aria-label="Sitting on summit rocks">
+        <img src="images/photo2.jpg"  alt="Resting on granite rocks above the gorge"         loading="lazy" /><div class="overlay"><span class="overlay-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="gallery-item reveal delay-3" data-src="images/photo3.jpg"  tabindex="0" role="button" aria-label="Valley panorama">
+        <img src="images/photo3.jpg"  alt="Panoramic view of Kamarob Valley"                 loading="lazy" /><div class="overlay"><span class="overlay-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="gallery-item gi-wide reveal delay-1" data-src="images/photo5.jpg" tabindex="0" role="button" aria-label="View of the gorge">
+        <img src="images/photo5.jpg"  alt="Overlooking Kamarob Gorge from the south ridge"  loading="lazy" /><div class="overlay"><span class="overlay-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="gallery-item reveal delay-2" data-src="images/photo6.jpg"  tabindex="0" role="button" aria-label="Drinking from spring">
+        <img src="images/photo6.jpg"  alt="Drinking from natural mountain spring"            loading="lazy" /><div class="overlay"><span class="overlay-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="gallery-item reveal delay-3" data-src="images/photo7.jpg"  tabindex="0" role="button" aria-label="Mountain valley">
+        <img src="images/photo7.jpg"  alt="Kamarob Valley from mid-slope"                    loading="lazy" /><div class="overlay"><span class="overlay-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="gallery-item reveal delay-1" data-src="images/photo8.jpg"  tabindex="0" role="button" aria-label="Stream in gorge">
+        <img src="images/photo8.jpg"  alt="Stream flowing through Kamarob Gorge"             loading="lazy" /><div class="overlay"><span class="overlay-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="gallery-item reveal delay-2" data-src="images/photo9.jpg"  tabindex="0" role="button" aria-label="Mountain trail">
+        <img src="images/photo9.jpg"  alt="Traditional trail through the highland valley"    loading="lazy" /><div class="overlay"><span class="overlay-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="gallery-item reveal delay-3" data-src="images/photo10.jpg" tabindex="0" role="button" aria-label="Local man on horseback">
+        <img src="images/photo10.jpg" alt="Local horseman on the ancient path near Shukmak" loading="lazy" /><div class="overlay"><span class="overlay-icon" aria-hidden="true">🔍</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ EXPEDITIONS (live from Supabase) ═══════ -->
+<section id="expeditions">
+  <div class="section-inner">
+    <div class="section-tag reveal" data-i18n="expeditions.tag">Field Missions</div>
+    <h2 class="section-title reveal" data-i18n="expeditions.title">Our <em>Expeditions</em></h2>
+    <p class="section-sub reveal" data-i18n="expeditions.sub">Every year we organize research and restoration expeditions into the Kamarob highlands.</p>
+    <div id="exp-loading" aria-live="polite">Loading expeditions…</div>
+    <div class="expeditions-grid" id="expeditionsGrid" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- ═══════ GET INVOLVED ═══════ -->
+<section id="involve">
+  <div class="section-inner">
+    <div class="section-tag reveal" data-i18n="involve.tag">Take Action</div>
+    <h2 class="section-title reveal" data-i18n="involve.title">Be Part of the <em>Solution</em></h2>
+    <div class="involve-grid">
+      <article class="involve-card reveal delay-1">
+        <div class="ic-icon" aria-hidden="true">🥾</div>
+        <h3 data-i18n="involve.c1_title">Volunteer With Us</h3>
+        <p data-i18n="involve.c1_desc">Join our seasonal planting expeditions in the Kamarob highlands.</p>
+        <a href="#contact" class="btn btn-primary" data-i18n="involve.c1_btn">Apply to Volunteer</a>
+      </article>
+      <article class="involve-card reveal delay-2">
+        <div class="ic-icon" aria-hidden="true">🤝</div>
+        <h3 data-i18n="involve.c2_title">Partner or Fund</h3>
+        <p data-i18n="involve.c2_desc">We partner with organizations that share our values.</p>
+        <a href="#contact" class="btn btn-outline" data-i18n="involve.c2_btn">Become a Partner</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-tag reveal" data-i18n="contact.tag">Get In Touch</div>
+        <h2 class="section-title reveal" data-i18n="contact.title">Let's <em>Talk</em>.</h2>
+        <p class="reveal" data-i18n="contact.sub">Whether you want to volunteer, partner, or learn more…</p>
+        <div class="contact-detail reveal delay-1"><span aria-hidden="true">📍</span><span data-i18n="contact.address">Dushanbe, Republic of Tajikistan</span></div>
+        <div class="contact-detail reveal delay-2"><span aria-hidden="true">✉️</span><span>info@kamarobnature.org</span></div>
+        <div class="contact-detail reveal delay-3"><span aria-hidden="true">🌐</span><span data-i18n="contact.field_missions">Field missions: April – October</span></div>
+        <div class="security-badge reveal delay-4">
+          <span class="lock" aria-hidden="true">🔒</span>
+          <div><strong data-i18n="contact.security_title">Secure Form</strong><br><span data-i18n="contact.security_desc">Protected against spam, XSS injection, and data tampering.</span></div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal-right">
+        <form id="contactForm" novalidate>
+          <input class="hp-field" type="text" name="hp_username" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name" data-i18n="contact.label_name">Full Name</label>
+              <input type="text" id="cf-name" name="from_name" required maxlength="80" autocomplete="name" data-i18n-ph="contact.ph_name" placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label for="cf-email" data-i18n="contact.label_email">Email</label>
+              <input type="email" id="cf-email" name="from_email" required maxlength="120" autocomplete="email" data-i18n-ph="contact.ph_email" placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-subject" data-i18n="contact.label_subject">I'm interested in</label>
+            <select id="cf-subject" name="subject">
+              <option value="">— Select —</option>
+              <option value="Volunteering" data-i18n="contact.opt_vol">Volunteering on a field mission</option>
+              <option value="Partnership"  data-i18n="contact.opt_partner">Institutional partnership</option>
+              <option value="Funding"      data-i18n="contact.opt_fund">Funding / Grant</option>
+              <option value="Media"        data-i18n="contact.opt_media">Media / Press</option>
+              <option value="Other"        data-i18n="contact.opt_other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cf-msg" data-i18n="contact.label_msg">Message</label>
+            <textarea id="cf-msg" name="message" required maxlength="1500" data-i18n-ph="contact.ph_msg" placeholder="Tell us about yourself…"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn" data-i18n="contact.btn_send">Send Message</button>
+          <div id="form-msg" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">🌿 Kamarob <em style="color:var(--accent);font-style:normal;">Nature</em></div>
+      <p data-i18n="footer.desc">Protecting the highlands of Tajikistan's Rasht Valley.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.col1">Programs</h4>
+      <a href="#programs">Forest Restoration</a>
+      <a href="#programs">Water Protection</a>
+      <a href="#programs">Ecotourism Trails</a>
+      <a href="#expeditions">Expeditions</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.col2">Organization</h4>
+      <a href="#about">About Us</a>
+      <a href="#involve">Volunteer</a>
+      <a href="auth.html">Sign In / Register</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.rights">© 2026 Kamarob Nature Fund. All rights reserved.</span>
+    <span><span data-i18n="footer.dev">Website by</span> <a href="https://mahmud0547.github.io" target="_blank" rel="noopener noreferrer">SimorghDev</a></span>
+  </div>
+</footer>
+
+<!-- ═══════ SCRIPTS (external files) ═══════ -->
+<!-- EmailJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js" crossorigin="anonymous"></script>
+<!-- i18n translations -->
+<script src="js/i18n.js"></script>
+<!-- Disposable email validator -->
+<script src="js/temp-emails.js"></script>
+<!-- Main page logic -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

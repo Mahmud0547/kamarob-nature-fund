@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — Kamarob Nature Fund</title>
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles (external file) -->
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+<!-- Left panel (decorative + brand message) -->
+<div class="auth-left" role="presentation" aria-hidden="true">
+  <div class="auth-left-content">
+    <h2>The Kamarob<br>needs you.</h2>
+    <p>Join 320 volunteers from 8 countries who are protecting one of Central Asia's last pristine mountain ecosystems.</p>
+  </div>
+</div>
+
+<!-- Right panel (auth form) -->
+<main class="auth-right" id="main-content">
+  <div class="auth-brand">
+    <a href="index.html">🌿 Kamarob <em>Nature</em></a>
+  </div>
+
+  <div class="auth-card" id="authCard">
+    <!-- Tabs -->
+    <div class="auth-tabs" role="tablist">
+      <button class="auth-tab active" id="tabLogin"    role="tab" aria-selected="true"  aria-controls="panelLogin"    onclick="showPanel('login')">Sign In</button>
+      <button class="auth-tab"        id="tabRegister" role="tab" aria-selected="false" aria-controls="panelRegister" onclick="showPanel('register')">Register</button>
+    </div>
+
+    <!-- LOGIN PANEL -->
+    <div id="panelLogin" role="tabpanel">
+      <h1 class="auth-title">Welcome back</h1>
+      <p class="auth-sub">Sign in to your Kamarob account</p>
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="l-email">Email Address</label>
+          <input type="email" id="l-email" name="email" placeholder="you@gmail.com" required maxlength="120" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="l-password">Password</label>
+          <input type="password" id="l-password" name="password" placeholder="••••••••" required minlength="8" autocomplete="current-password" />
+        </div>
+        <button type="submit" class="form-submit" id="loginBtn">Sign In</button>
+      </form>
+    </div>
+
+    <!-- REGISTER PANEL -->
+    <div id="panelRegister" role="tabpanel" style="display:none;">
+      <h1 class="auth-title">Join the mission</h1>
+      <p class="auth-sub">Create a free account to follow our work</p>
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="r-name">Full Name</label>
+          <input type="text" id="r-name" name="full_name" placeholder="Your full name" required maxlength="80" autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="r-email">Email Address</label>
+          <input type="email" id="r-email" name="email" placeholder="you@gmail.com" required maxlength="120" autocomplete="email" aria-describedby="domain-warn" />
+          <div class="domain-warn" id="domain-warn" role="alert" aria-live="polite">
+            ⚠️ Temporary email addresses are not allowed. Please use Gmail, Outlook, iCloud, etc.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="r-password">Password (min. 8 characters)</label>
+          <input type="password" id="r-password" name="password" placeholder="••••••••" required minlength="8" autocomplete="new-password" />
+          <div class="pw-strength" aria-hidden="true">
+            <div class="pw-bar" id="pb1"></div>
+            <div class="pw-bar" id="pb2"></div>
+            <div class="pw-bar" id="pb3"></div>
+          </div>
+          <div class="pw-label" id="pw-label" aria-live="polite"></div>
+        </div>
+        <div class="form-group">
+          <label for="r-confirm">Confirm Password</label>
+          <input type="password" id="r-confirm" name="confirm" placeholder="••••••••" required autocomplete="new-password" />
+        </div>
+        <button type="submit" class="form-submit" id="registerBtn">Create Account</button>
+      </form>
+    </div>
+
+    <!-- VERIFY PANEL -->
+    <div id="panelVerify" style="display:none;">
+      <div class="verify-panel">
+        <div class="verify-icon">📬</div>
+        <h3>Check your email</h3>
+        <p>We sent a confirmation link to <strong id="verifyEmail" style="color:var(--accent);"></strong>.<br><br>
+           Click the link to activate your account. Check spam if you don't see it.</p>
+        <button class="btn-back" onclick="showPanel('login')">← Back to Sign In</button>
+      </div>
+    </div>
+
+    <div id="auth-msg" role="alert" aria-live="polite"></div>
+
+    <div class="security-info" aria-label="Security information">
+      🔒 <strong>Secure authentication</strong> powered by Supabase.<br>
+      Passwords are hashed with bcrypt. Email verified before access. No temporary email addresses accepted.
+    </div>
+  </div>
+</main>
+
+<!-- ═══════ SCRIPTS ═══════ -->
+<!-- Tab switching — must work even if ES module fails to load -->
+<script>
+function showPanel(panel) {
+  document.getElementById('panelLogin').style.display    = panel === 'login'    ? '' : 'none';
+  document.getElementById('panelRegister').style.display = panel === 'register' ? '' : 'none';
+  document.getElementById('panelVerify').style.display   = panel === 'verify'   ? '' : 'none';
+  document.getElementById('tabLogin').classList.toggle('active', panel === 'login');
+  document.getElementById('tabRegister').classList.toggle('active', panel === 'register');
+  document.getElementById('tabLogin').setAttribute('aria-selected', String(panel === 'login'));
+  document.getElementById('tabRegister').setAttribute('aria-selected', String(panel === 'register'));
+  var msg = document.getElementById('auth-msg');
+  if (msg) msg.textContent = '';
+}
+</script>
+<!-- Disposable email validator -->
+<script src="js/temp-emails.js"></script>
+<!-- Auth logic (ES Module) -->
+<script type="module" src="js/auth.js"></script>
+
+</body>
+</html>
