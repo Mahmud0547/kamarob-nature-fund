@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kamarob — a platform for nonprofits
 
-## Getting Started
+A complete system a nonprofit in Tajikistan can run on: public website, news and announcements, documents,
+member accounts with email confirmation, a member area with real-time chat, and an admin panel.
 
-First, run the development server:
+**Live demo:** https://kamarob.simorgh-dev.workers.dev — the organisation is a demonstration; the photos and videos
+are real, taken by the author in the Kamarob Gorge, Rasht District.
+
+Try it: register as a member, or open the admin panel with the shared read-only account shown on the home page.
+
+## Features
+
+| Area | What it does |
+|---|---|
+| Public site | Home, About, Programmes, News, Documents, Gallery, Contact — English, Russian, Tajik |
+| Accounts | Sign-up with email confirmation, log in, password reset, profile and language |
+| Member area | Members-only news and documents, team chat with channels in real time |
+| Admin panel | Overview numbers, news editor in three languages with cover upload, document upload, member approval and roles, contact inbox |
+| Demo admin | A public login that sees the admin panel but cannot change anything, and never sees real visitors' data |
+
+## Stack
+
+Next.js 16 (App Router, server actions) · React 19 · TypeScript · Tailwind CSS 4 · Supabase (Auth, Postgres with Row
+Level Security, Storage, Realtime) · Cloudflare Workers via OpenNext · Vitest · Playwright · axe
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local      # fill in the Supabase URL and anon key
+npm run dev                     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Checks
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint && npm run typecheck && npm test   # unit tests
+npm run test:rls                                # access rules against the Supabase project
+npm run test:e2e                                # browser tests (BASE_URL=https://… for a deployed site)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy
 
-## Learn More
+```bash
+npx supabase db push            # database migrations
+npm run deploy                  # build with OpenNext and deploy to Cloudflare Workers
+```
 
-To learn more about Next.js, take a look at the following resources:
+More in [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/architecture.md](docs/architecture.md).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Code: [MIT](LICENSE). Photos and videos © Mahmud Faiezov, all rights reserved.
