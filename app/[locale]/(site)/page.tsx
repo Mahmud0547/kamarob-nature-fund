@@ -63,17 +63,17 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <h2 id="demo-title" className="font-serif text-[clamp(28px,4vw,40px)] font-semibold">{m.demoAccess.title}</h2>
         <p className="mt-2 text-lg text-soft">{m.demoAccess.lead}</p>
         <div className="mt-10 grid gap-5 md:grid-cols-2">
-          <div className="rounded-2xl border border-line bg-white p-7">
+          <div className="min-w-0 rounded-2xl border border-line bg-white p-5 sm:p-7">
             <h3 className="font-serif text-xl font-semibold">{m.demoAccess.registerTitle}</h3>
             <p className="mt-2 leading-relaxed text-soft">{m.demoAccess.registerText}</p>
             <Link href={path(locale, "/register")} className="mt-5 inline-block rounded-full bg-forest px-5 py-2.5 font-semibold text-white">{m.nav.join}</Link>
           </div>
-          <div className="rounded-2xl border border-line bg-white p-7">
+          <div className="min-w-0 rounded-2xl border border-line bg-white p-5 sm:p-7">
             <h3 className="font-serif text-xl font-semibold">{m.demoAccess.adminTitle}</h3>
             <p className="mt-2 leading-relaxed text-soft">{m.demoAccess.adminText}</p>
             <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 rounded-xl bg-paper p-4 text-sm">
               <dt className="text-soft">{m.demoAccess.email}</dt>
-              <dd className="font-mono">{DEMO_ADMIN.email}</dd>
+              <dd className="font-mono break-all">{DEMO_ADMIN.email}</dd>
               <dt className="text-soft">{m.demoAccess.password}</dt>
               <dd className="font-mono">{DEMO_ADMIN.password}</dd>
             </dl>
