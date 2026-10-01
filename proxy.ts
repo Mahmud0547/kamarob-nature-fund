@@ -1,11 +1,11 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { contentSecurityPolicy } from "@/lib/csp";
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n";
 import { updateSession } from "@/lib/supabase/proxy";
 
 /** Picks a language for "/" from Accept-Language: Russian and Tajik speakers land on their version. */
 function preferredLocale(request: NextRequest): Locale {
-  const header = request.headers.get("accept-language") ?? "";
-  for (const part of header.split(",")) {
+  for (const part of (request.headers.get("accept-language") ?? "").split(",")) {
     const code = part.trim().slice(0, 2).toLowerCase();
     if (code === "tg") return "tj";
     if (isLocale(code)) return code;
@@ -16,15 +16,31 @@ function preferredLocale(request: NextRequest): Locale {
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const first = pathname.split("/")[1] ?? "";
-  if (!isLocale(first) && !pathname.startsWith("/auth/")) {
+  if (!isLocale(first) && !pathname.startsWith("/auth/") && !pathname.startsWith("/api/")) {
     const url = request.nextUrl.clone();
     url.pathname = `/${preferredLocale(request)}${pathname === "/" ? "" : pathname}`;
     return NextResponse.redirect(url);
   }
-  return updateSession(request, NextResponse.next({ request }));
+
+  const nonce = btoa(crypto.randomUUID());
+  const csp = contentSecurityPolicy(nonce, process.env.NODE_ENV === "development");
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-nonce", nonce);
+  requestHeaders.set("Content-Security-Policy", csp);
+  const response = await updateSession(request, requestHeaders);
+  response.headers.set("Content-Security-Policy", csp);
+  response.headers.set("X-Content-Type-Options", "nosniff");
+  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  response.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  response.headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  return response;
 }
 
 export const config = {
-  // Everything except static files and images.
-  matcher: ["/((?!_next/static|_next/image|media/|favicon|icon|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|webp|mp4|ico)$).*)"],
+  matcher: [
+    {
+      source: "/((?!_next/static|_next/image|media/|favicon|icon|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|webp|mp4|ico|pdf)$).*)",
+      missing: [{ type: "header", key: "next-router-prefetch" }, { type: "header", key: "purpose", value: "prefetch" }],
+    },
+  ],
 };

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { connection } from "next/server";
 import "../globals.css";
 import { SITE_URL } from "@/lib/env";
 import { inter, lora } from "@/lib/fonts";
@@ -25,6 +26,8 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  // Every page is rendered per request so it can carry this request's CSP nonce.
+  await connection();
   return (
     <html lang={htmlLang[locale]} className={`${inter.variable} ${lora.variable}`}>
       <body className="min-h-dvh font-sans antialiased">{children}</body>
