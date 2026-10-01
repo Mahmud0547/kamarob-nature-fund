@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* Design tokens from Figma (file BOuiP0pgPWP4uCtYquclVm, page "Kamarob Platform"). */
+@theme {
+  --color-forest: #1f3b2d;
+  --color-juniper: #2f5d46;
+  --color-sand: #efe6d2;
+  --color-paper: #f8f5ee;
+  --color-ink: #1b1f1a;
+  --color-soft: #5e665d;
+  --color-line: #e2dccd;
+  --color-sun: #e2a13b;
+  --color-moss: #dce7da;
+  --color-mist: #d5e0d6;
+  --color-rust: #9a4521;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-lora), Georgia, serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-juniper);
+  outline-offset: 2px;
+}
+
+.dark-surface :focus-visible {
+  outline-color: var(--color-sun);
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 1248px;
+  margin-inline: auto;
+  padding-inline: 16px;
+  @media (width >= 48rem) {
+    padding-inline: 24px;
+  }
+}
+
+/* Markdown article body */
+.prose-body > * + * {
+  margin-top: 1em;
+}
+.prose-body h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.6em;
+}
+.prose-body h3 {
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-top: 1.4em;
+}
+.prose-body a {
+  color: var(--color-juniper);
+  text-decoration: underline;
+}
+.prose-body ul {
+  list-style: disc;
+  padding-left: 1.4em;
+}
+.prose-body ol {
+  list-style: decimal;
+  padding-left: 1.4em;
+}
+.prose-body blockquote {
+  border-left: 3px solid var(--color-sun);
+  padding-left: 1em;
+  color: var(--color-soft);
+}

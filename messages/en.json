@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "title": "Kamarob — a platform for nonprofits in Tajikistan",
+    "description": "A working platform for a nonprofit: public website, news and documents, member accounts, admin panel and team chat. Demo by SimorghDev with real photos from the Kamarob Gorge."
+  },
+  "demo": {
+    "banner": "Demo platform for nonprofits, built by SimorghDev. Photos and video: Kamarob Gorge, Rasht District — real, by the author.",
+    "sample": "Sample"
+  },
+  "nav": {
+    "about": "About",
+    "programmes": "Programmes",
+    "news": "News",
+    "documents": "Documents",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "login": "Log in",
+    "join": "Join",
+    "account": "My account",
+    "admin": "Admin",
+    "logout": "Log out",
+    "menu": "Menu",
+    "language": "Language",
+    "skip": "Skip to content"
+  },
+  "home": {
+    "eyebrow": "Kamarob Gorge · Rasht District, Tajikistan",
+    "title": "Mountain springs, juniper slopes and the people who look after them.",
+    "lead": "A working platform for a nonprofit: public website, news and documents, member accounts with email confirmation, an admin panel and team chat.",
+    "tryDemo": "Try the demo",
+    "readNews": "Read the news",
+    "featuresTitle": "What the platform includes",
+    "featuresLead": "Everything a nonprofit needs to work, in one system.",
+    "features": [
+      { "title": "Public website", "text": "About, programmes, news, documents, gallery and contact — in English, Russian and Tajik." },
+      { "title": "Accounts", "text": "Registration with email confirmation, password reset and profiles." },
+      { "title": "Member area", "text": "Internal news and documents only for confirmed members." },
+      { "title": "Admin panel", "text": "Publish news, upload documents, approve members, read messages." },
+      { "title": "Documents", "text": "Public and members-only files with secure, expiring download links." },
+      { "title": "Team chat", "text": "Channels with messages in real time." }
+    ],
+    "latestNews": "Latest news",
+    "allNews": "All news",
+    "storyEyebrow": "The author's trip",
+    "storyTitle": "Six weeks in the Rasht District",
+    "storyText": "During the holidays I spent a month and a half in the Rasht District, climbed about three kilometres up the gorge and spent a night by a spring that runs down from the mountain. Every photo and video on this site is from that trip.",
+    "storySignature": "— Mahmud Faiezov, SimorghDev",
+    "galleryTitle": "From the gorge",
+    "ctaTitle": "Need a platform like this for your organisation?",
+    "ctaText": "SimorghDev builds websites and internal systems for nonprofits in Tajikistan and Central Asia.",
+    "ctaButton": "Contact SimorghDev"
+  },
+  "demoAccess": {
+    "title": "Try it yourself",
+    "lead": "Two ways to see the system from the inside.",
+    "registerTitle": "Create a member account",
+    "registerText": "Register with your email, confirm it, and you will see the member area with internal news, documents and chat.",
+    "adminTitle": "Open the admin panel",
+    "adminText": "Log in with the shared demo account. It can see everything but cannot change anything.",
+    "email": "Email",
+    "password": "Password"
+  },
+  "about": {
+    "title": "About this platform",
+    "lead": "Kamarob is a demonstration of what a nonprofit in Tajikistan can run on one system.",
+    "p1": "Many organisations working in Tajikistan's mountain regions have no website, or one that is out of date and cannot be edited by the team. Kamarob shows the alternative: a public site the team updates itself, and an internal space for members.",
+    "p2": "The organisation on this site is a demo. The places are real: the photos and videos were taken by the author in the Kamarob Gorge in the Rasht District.",
+    "p3": "The platform is built with Next.js and Supabase: accounts with email confirmation, a Postgres database where every table checks who may read and write, file storage and real-time chat.",
+    "techTitle": "How it is built"
+  },
+  "programmes": {
+    "title": "Programmes",
+    "lead": "Example programme pages. A real organisation describes its own work here.",
+    "items": [
+      { "title": "Springs and water", "text": "Example programme: documenting the springs that feed the gorge and sharing what is learned with local communities." },
+      { "title": "Trails", "text": "Example programme: describing safe walking routes and asking visitors to leave no trace." },
+      { "title": "Volunteers", "text": "Example programme: organising field days and keeping volunteers informed through the member area." }
+    ]
+  },
+  "news": {
+    "title": "News",
+    "lead": "Updates and announcements.",
+    "empty": "No news yet.",
+    "announcement": "Announcement",
+    "membersOnly": "Members only",
+    "back": "All news",
+    "published": "Published {date}"
+  },
+  "documents": {
+    "title": "Documents",
+    "lead": "Reports, policies and templates.",
+    "public": "Public documents",
+    "membersHint": "Members see more documents after logging in.",
+    "download": "Download",
+    "empty": "No documents yet."
+  },
+  "gallery": { "title": "Gallery", "lead": "Photos and video from the Kamarob Gorge, Rasht District. All by the author." },
+  "contact": {
+    "title": "Contact",
+    "lead": "Write to the organisation. Messages go to the admin inbox.",
+    "name": "Your name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sent": "Thank you! Your message has been received.",
+    "error": "The message could not be sent. Please try again later.",
+    "tooShort": "Please write at least 20 characters."
+  },
+  "auth": {
+    "loginTitle": "Log in",
+    "registerTitle": "Create an account",
+    "resetTitle": "Reset your password",
+    "newPasswordTitle": "Choose a new password",
+    "fullName": "Full name",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 8 characters.",
+    "login": "Log in",
+    "register": "Create account",
+    "sendReset": "Send reset link",
+    "savePassword": "Save password",
+    "noAccount": "No account yet?",
+    "haveAccount": "Already have an account?",
+    "forgot": "Forgot your password?",
+    "checkEmail": "Check your email: we sent a confirmation link to {email}.",
+    "resetSent": "If an account exists for {email}, a reset link is on its way.",
+    "wrongCredentials": "Wrong email or password.",
+    "notConfirmed": "Please confirm your email first.",
+    "pending": "Your account is waiting for approval by an administrator.",
+    "blocked": "This account is blocked.",
+    "genericError": "Something went wrong. Please try again.",
+    "confirmed": "Email confirmed. Welcome!",
+    "linkInvalid": "This link is invalid or has expired."
+  },
+  "account": {
+    "title": "My account",
+    "welcome": "Welcome, {name}",
+    "internalNews": "Members' news",
+    "internalDocuments": "Members' documents",
+    "chat": "Team chat",
+    "profile": "Profile",
+    "save": "Save",
+    "saved": "Saved.",
+    "role": "Role",
+    "roles": { "member": "Member", "editor": "Editor", "admin": "Administrator", "demo_admin": "Demo administrator" }
+  },
+  "chat": {
+    "title": "Team chat",
+    "placeholder": "Write a message…",
+    "send": "Send",
+    "empty": "No messages yet. Say hello!",
+    "readOnly": "The demo administrator can read the chat but cannot write."
+  },
+  "admin": {
+    "title": "Admin",
+    "readOnly": "Demo admin · read-only. Changes are disabled in the public demo.",
+    "overview": "Overview",
+    "news": "News",
+    "documents": "Documents",
+    "members": "Members",
+    "messages": "Messages",
+    "stats": {
+      "posts": "Published news",
+      "drafts": "{count} drafts",
+      "members": "Members",
+      "pending": "{count} waiting for approval",
+      "documents": "Documents",
+      "membersDocs": "{count} members-only",
+      "newMessages": "New messages",
+      "fromContact": "from the contact form"
+    },
+    "newPost": "New post",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "saved": "Saved.",
+    "status": { "draft": "Draft", "published": "Published" },
+    "visibility": { "public": "Public", "members": "Members" },
+    "kind": { "news": "News", "announcement": "Announcement" },
+    "fields": {
+      "slug": "Address (slug)",
+      "title": "Title",
+      "summary": "Summary",
+      "body": "Text (Markdown)",
+      "cover": "Cover image",
+      "status": "Status",
+      "visibility": "Who can see it",
+      "kind": "Type",
+      "file": "File (PDF, Word, Excel or image, up to 20 MB)",
+      "description": "Description"
+    },
+    "upload": "Upload",
+    "approve": "Approve",
+    "block": "Block",
+    "makeEditor": "Make editor",
+    "makeMember": "Make member",
+    "markHandled": "Mark as handled",
+    "handled": "Handled",
+    "noPending": "Nobody is waiting for approval.",
+    "noMessages": "No messages.",
+    "recentPosts": "Recent posts",
+    "waiting": "Waiting for approval",
+    "forbidden": "You do not have access to this page."
+  },
+  "footer": {
+    "about": "Kamarob — demo platform for nonprofits. Built with Next.js and Supabase by SimorghDev.",
+    "rights": "Photos and video © Mahmud Faiezov. The organisation, its programmes and sample news are a demonstration.",
+    "builtBy": "Built by SimorghDev"
+  },
+  "errors": { "notFound": "Page not found", "home": "Back to the home page" }
+}

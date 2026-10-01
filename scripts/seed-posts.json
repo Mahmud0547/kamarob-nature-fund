@@ -1,0 +1,78 @@
+[
+  {
+    "slug": "notes-from-the-spring",
+    "kind": "news",
+    "status": "published",
+    "visibility": "public",
+    "published_at": "2026-09-12T08:00:00Z",
+    "cover_path": "/media/photo6-1600.webp",
+    "tags": ["Water"],
+    "title": { "en": "Notes from the spring above the trail", "ru": "Заметки у родника над тропой", "tj": "Қайдҳо дар назди чашма болои пайраҳа" },
+    "summary": { "en": "A sample news post: what a short stop at a mountain spring looks like on the Kamarob trail.", "ru": "Пример новости: как выглядит короткая остановка у горного родника на тропе Камароба.", "tj": "Намунаи хабар: истгоҳи кӯтоҳ дар назди чашмаи кӯҳӣ дар пайраҳаи Камароб." },
+    "body": {
+      "en": "This is a **sample post** written to show how news looks on the platform.\n\nThe photo and the video in the gallery are real: they were taken by the author at a spring in the Kamarob Gorge.\n\n## What an editor can do\n\n- write the text in Markdown;\n- add a cover image;\n- publish it for everyone or for members only.",
+      "ru": "Это **пример новости**, чтобы показать, как выглядят записи на платформе.\n\nФото и видео в галерее настоящие: их снял автор у родника в ущелье Камароб.\n\n## Что может редактор\n\n- писать текст в Markdown;\n- добавлять обложку;\n- публиковать для всех или только для участников.",
+      "tj": "Ин **намунаи хабар** аст, то нишон диҳад, ки сабтҳо дар платформа чӣ гуна менамоянд.\n\nАксу видео дар галерея воқеӣ мебошанд: онҳоро муаллиф дар назди чашма дар дараи Камароб гирифтааст.\n\n## Муҳаррир чӣ карда метавонад\n\n- матнро бо Markdown нависад;\n- тасвири муқова илова кунад;\n- барои ҳама ё танҳо барои аъзоён нашр кунад."
+    }
+  },
+  {
+    "slug": "two-days-on-the-trail",
+    "kind": "news",
+    "status": "published",
+    "visibility": "public",
+    "published_at": "2026-09-03T08:00:00Z",
+    "cover_path": "/media/photo10-1600.webp",
+    "tags": ["Field trip"],
+    "title": { "en": "Two days on the trail: notes from the route", "ru": "Два дня на тропе: заметки с маршрута", "tj": "Ду рӯз дар пайраҳа: қайдҳо аз масир" },
+    "summary": { "en": "A sample field-trip post with photos from the author's own route.", "ru": "Пример записи о выезде с фото с маршрута автора.", "tj": "Намунаи сабт дар бораи сафар бо аксҳо аз масири муаллиф." },
+    "body": {
+      "en": "A **sample post** about a field trip. Organisations use posts like this to report on their work.\n\n> Every photo on this site comes from the author's own trip to the Rasht District.",
+      "ru": "**Пример записи** о выезде. Организации пишут такие записи, чтобы рассказывать о своей работе.\n\n> Все фото на сайте — из поездки автора в Раштский район.",
+      "tj": "**Намунаи сабт** дар бораи сафар. Ташкилотҳо чунин сабтҳоро барои ҳисобот дар бораи кори худ менависанд.\n\n> Ҳамаи аксҳо дар сайт аз сафари муаллиф ба ноҳияи Рашт мебошанд."
+    }
+  },
+  {
+    "slug": "members-can-download-documents",
+    "kind": "announcement",
+    "status": "published",
+    "visibility": "public",
+    "published_at": "2026-08-28T08:00:00Z",
+    "cover_path": "/media/photo8-1600.webp",
+    "tags": ["Platform"],
+    "title": { "en": "Members can download internal documents", "ru": "Участники могут скачивать внутренние документы", "tj": "Аъзоён метавонанд ҳуҷҷатҳои дохилиро боргирӣ кунанд" },
+    "summary": { "en": "An announcement about a platform feature: members-only documents with secure links.", "ru": "Объявление о функции платформы: документы для участников с защищёнными ссылками.", "tj": "Эълон дар бораи имконияти платформа: ҳуҷҷатҳо барои аъзоён бо пайвандҳои ҳифзшуда." },
+    "body": {
+      "en": "After confirming their email, members see internal documents in their account. Download links work for 60 seconds, so files cannot be shared by link.",
+      "ru": "После подтверждения email участники видят внутренние документы в кабинете. Ссылки на скачивание действуют 60 секунд, поэтому файлы нельзя раздать по ссылке.",
+      "tj": "Пас аз тасдиқи email аъзоён ҳуҷҷатҳои дохилиро дар кабинет мебинанд. Пайвандҳои боргирӣ 60 сония амал мекунанд, бинобар ин файлҳоро бо пайванд паҳн кардан мумкин нест."
+    }
+  },
+  {
+    "slug": "field-day-plan",
+    "kind": "news",
+    "status": "published",
+    "visibility": "members",
+    "published_at": "2026-09-20T08:00:00Z",
+    "cover_path": "/media/photo4-1600.webp",
+    "tags": ["Members"],
+    "title": { "en": "Field day plan (members only, sample)", "ru": "План выезда (для участников, пример)", "tj": "Нақшаи сафар (барои аъзоён, намуна)" },
+    "summary": { "en": "Only logged-in members see this sample post.", "ru": "Этот пример видят только вошедшие участники.", "tj": "Ин намунаро танҳо аъзоёни воридшуда мебинанд." },
+    "body": {
+      "en": "This post is visible only to confirmed members. It shows how an organisation shares internal plans.",
+      "ru": "Эта запись видна только подтверждённым участникам. Так организация делится внутренними планами.",
+      "tj": "Ин сабт танҳо ба аъзоёни тасдиқшуда намоён аст. Ташкилот ҳамин тавр нақшаҳои дохилиро мубодила мекунад."
+    }
+  },
+  {
+    "slug": "autumn-plan-draft",
+    "kind": "news",
+    "status": "draft",
+    "visibility": "members",
+    "published_at": null,
+    "cover_path": null,
+    "tags": ["Draft"],
+    "title": { "en": "Autumn plan (draft, sample)", "ru": "Осенний план (черновик, пример)", "tj": "Нақшаи тирамоҳ (сиёҳнавис, намуна)" },
+    "summary": {},
+    "body": { "en": "Drafts are visible only in the admin panel." }
+  }
+]
