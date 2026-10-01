@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Markdown from "react-markdown";
 import { SampleTag } from "@/components/DemoBanner";
+import { Markdown } from "@/components/Markdown";
 import { mediaUrl, postBySlug } from "@/lib/data";
 import { formatDate } from "@/lib/format";
 import { format, getMessages, isLocale, localized, path } from "@/lib/i18n";
@@ -33,8 +33,7 @@ export default async function PostPage({ params }: PageProps<"/[locale]/news/[sl
       <p className="mt-3 text-soft">{format(m.news.published, { date: formatDate(post.published_at, locale) })}</p>
       {cover && <Image src={cover} alt="" width={1200} height={750} sizes="(min-width: 768px) 768px, 100vw" className="mt-8 aspect-[16/10] w-full rounded-3xl object-cover" />}
       <div className="prose-body mt-8 text-lg leading-relaxed">
-        {/* react-markdown escapes raw HTML, so editor text can never inject markup or scripts. */}
-        <Markdown>{localized(post.body, locale)}</Markdown>
+        <Markdown source={localized(post.body, locale)} />
       </div>
     </article>
   );
