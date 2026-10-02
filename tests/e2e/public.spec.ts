@@ -15,9 +15,11 @@ for (const [path, lang] of [["/en", "en"], ["/ru", "ru"], ["/tj", "tg"]] as cons
   });
 }
 
-test("the root redirects to a language", async ({ page }) => {
-  await page.goto("/");
-  await expect(page).toHaveURL(/\/(en|ru|tj)$/);
+test("the root shows the home page without a redirect and carries the verification tag", async ({ page }) => {
+  const response = await page.goto("/");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toHaveCount(1);
+  await expect(page.locator('meta[name="google-site-verification"]')).toHaveCount(1);
 });
 
 test("news list and an article show sample content honestly", async ({ page }) => {
