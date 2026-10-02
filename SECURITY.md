@@ -1,6 +1,6 @@
 # Security
 
-Report vulnerabilities privately on Telegram: https://t.me/Simorgh_Dev.
+Report vulnerabilities privately on Telegram: https://t.me/SimorghDev.
 
 - **Access control in the database:** Row Level Security on every table and storage bucket; roles checked by SQL functions; tested against the live project.
 - **Read-only demo admin:** cannot write anything and sees only sample people and messages.
