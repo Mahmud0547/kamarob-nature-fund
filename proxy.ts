@@ -16,9 +16,12 @@ function preferredLocale(request: NextRequest): Locale {
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const first = pathname.split("/")[1] ?? "";
-  if (!isLocale(first) && !pathname.startsWith("/auth/") && !pathname.startsWith("/api/")) {
+  // "/" shows the home page in the visitor's language without a redirect, so crawlers (and Search Console
+  // verification) get a real page at the site root.
+  const rewriteRoot = pathname === "/";
+  if (!rewriteRoot && !isLocale(first) && !pathname.startsWith("/auth/") && !pathname.startsWith("/api/")) {
     const url = request.nextUrl.clone();
-    url.pathname = `/${preferredLocale(request)}${pathname === "/" ? "" : pathname}`;
+    url.pathname = `/${preferredLocale(request)}${pathname}`;
     return NextResponse.redirect(url);
   }
 
@@ -27,7 +30,7 @@ export async function proxy(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-nonce", nonce);
   requestHeaders.set("Content-Security-Policy", csp);
-  const response = await updateSession(request, requestHeaders);
+  const response = await updateSession(request, requestHeaders, rewriteRoot ? `/${preferredLocale(request)}` : undefined);
   response.headers.set("Content-Security-Policy", csp);
   response.headers.set("X-Content-Type-Options", "nosniff");
   response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");

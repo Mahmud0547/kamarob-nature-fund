@@ -19,7 +19,9 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
     title: { default: t.title, template: `%s · Kamarob` },
     description: t.description,
     openGraph: { title: t.title, description: t.description, images: ["/media/hero-1600.webp"], type: "website" },
-    alternates: { languages: { en: "/en", ru: "/ru", tg: "/tj", "x-default": "/en" } },
+    alternates: { canonical: `/${locale}`, languages: { en: "/en", ru: "/ru", tg: "/tj", "x-default": "/en" } },
+    // Google Search Console ownership token (public by design).
+    verification: { google: "HH6lnTnT8LMIOmSP52tYTV06E6nVdVjs_zkp5ochbAo" },
   };
 }
 
