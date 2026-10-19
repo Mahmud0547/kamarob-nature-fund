@@ -21,7 +21,8 @@
     "logout": "Log out",
     "menu": "Menu",
     "language": "Language",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "search": "Search"
   },
   "home": {
     "eyebrow": "Kamarob Gorge · Rasht District, Tajikistan",
@@ -32,12 +33,30 @@
     "featuresTitle": "What the platform includes",
     "featuresLead": "Everything a nonprofit needs to work, in one system.",
     "features": [
-      { "title": "Public website", "text": "About, programmes, news, documents, gallery and contact — in English, Russian and Tajik." },
-      { "title": "Accounts", "text": "Registration with email confirmation, password reset and profiles." },
-      { "title": "Member area", "text": "Internal news and documents only for confirmed members." },
-      { "title": "Admin panel", "text": "Publish news, upload documents, approve members, read messages." },
-      { "title": "Documents", "text": "Public and members-only files with secure, expiring download links." },
-      { "title": "Team chat", "text": "Channels with messages in real time." }
+      {
+        "title": "Public website",
+        "text": "About, programmes, news, documents, gallery and contact — in English, Russian and Tajik."
+      },
+      {
+        "title": "Accounts",
+        "text": "Registration with email confirmation, password reset and profiles."
+      },
+      {
+        "title": "Member area",
+        "text": "Internal news and documents only for confirmed members."
+      },
+      {
+        "title": "Admin panel",
+        "text": "Publish news, upload documents, approve members, read messages."
+      },
+      {
+        "title": "Documents",
+        "text": "Public and members-only files with secure, expiring download links."
+      },
+      {
+        "title": "Team chat",
+        "text": "Channels with messages in real time."
+      }
     ],
     "latestNews": "Latest news",
     "allNews": "All news",
@@ -72,9 +91,18 @@
     "title": "Programmes",
     "lead": "Example programme pages. A real organisation describes its own work here.",
     "items": [
-      { "title": "Springs and water", "text": "Example programme: documenting the springs that feed the gorge and sharing what is learned with local communities." },
-      { "title": "Trails", "text": "Example programme: describing safe walking routes and asking visitors to leave no trace." },
-      { "title": "Volunteers", "text": "Example programme: organising field days and keeping volunteers informed through the member area." }
+      {
+        "title": "Springs and water",
+        "text": "Example programme: documenting the springs that feed the gorge and sharing what is learned with local communities."
+      },
+      {
+        "title": "Trails",
+        "text": "Example programme: describing safe walking routes and asking visitors to leave no trace."
+      },
+      {
+        "title": "Volunteers",
+        "text": "Example programme: organising field days and keeping volunteers informed through the member area."
+      }
     ]
   },
   "news": {
@@ -84,7 +112,26 @@
     "announcement": "Announcement",
     "membersOnly": "Members only",
     "back": "All news",
-    "published": "Published {date}"
+    "published": "Published {date}",
+    "readTime": "{minutes} min read",
+    "share": "Share",
+    "copyLink": "Copy link",
+    "copied": "Link copied",
+    "related": "Read also",
+    "rss": "RSS feed"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search news, documents and programmes",
+    "button": "Search",
+    "results": "{count} results for “{query}”",
+    "empty": "Nothing found for “{query}”. Try another word.",
+    "hint": "Type at least two letters.",
+    "kinds": {
+      "news": "News",
+      "document": "Document",
+      "programme": "Programme"
+    }
   },
   "documents": {
     "title": "Documents",
@@ -94,7 +141,10 @@
     "download": "Download",
     "empty": "No documents yet."
   },
-  "gallery": { "title": "Gallery", "lead": "Photos and video from the Kamarob Gorge, Rasht District. All by the author." },
+  "gallery": {
+    "title": "Gallery",
+    "lead": "Photos and video from the Kamarob Gorge, Rasht District. All by the author."
+  },
   "contact": {
     "title": "Contact",
     "lead": "Write to the organisation. Messages go to the admin inbox.",
@@ -143,7 +193,12 @@
     "save": "Save",
     "saved": "Saved.",
     "role": "Role",
-    "roles": { "member": "Member", "editor": "Editor", "admin": "Administrator", "demo_admin": "Demo administrator" }
+    "roles": {
+      "member": "Member",
+      "editor": "Editor",
+      "admin": "Administrator",
+      "demo_admin": "Demo administrator"
+    }
   },
   "chat": {
     "title": "Team chat",
@@ -175,9 +230,18 @@
     "delete": "Delete",
     "save": "Save",
     "saved": "Saved.",
-    "status": { "draft": "Draft", "published": "Published" },
-    "visibility": { "public": "Public", "members": "Members" },
-    "kind": { "news": "News", "announcement": "Announcement" },
+    "status": {
+      "draft": "Draft",
+      "published": "Published"
+    },
+    "visibility": {
+      "public": "Public",
+      "members": "Members"
+    },
+    "kind": {
+      "news": "News",
+      "announcement": "Announcement"
+    },
     "fields": {
       "slug": "Address (slug)",
       "title": "Title",
@@ -201,12 +265,17 @@
     "noMessages": "No messages.",
     "recentPosts": "Recent posts",
     "waiting": "Waiting for approval",
-    "forbidden": "You do not have access to this page."
+    "forbidden": "You do not have access to this page.",
+    "signups": "New members by week",
+    "signupsHint": "Last 8 weeks"
   },
   "footer": {
     "about": "Kamarob — demo platform for nonprofits. Built with Next.js and Supabase by SimorghDev.",
     "rights": "Photos and video © Mahmud Faiezov. The organisation, its programmes and sample news are a demonstration.",
     "builtBy": "Built by SimorghDev"
   },
-  "errors": { "notFound": "Page not found", "home": "Back to the home page" }
+  "errors": {
+    "notFound": "Page not found",
+    "home": "Back to the home page"
+  }
 }

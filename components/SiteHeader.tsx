@@ -29,6 +29,15 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
     </>
   );
 
+  const searchLink = (
+    <Link href={path(locale, "/search")} aria-label={t.search} title={t.search} className="grid size-10 place-items-center rounded-full text-mist hover:bg-white/10 hover:text-white">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-4-4" />
+      </svg>
+    </Link>
+  );
+
   return (
     <header className="dark-surface bg-forest">
       <a href="#main" className="sr-only rounded bg-sun px-3 py-2 text-ink focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50">{t.skip}</a>
@@ -42,17 +51,20 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
           </ul>
         </nav>
         <div className="ml-auto hidden items-center gap-4 lg:flex">
+          {searchLink}
           <LanguageSwitcher locale={locale} label={t.language} />
           {accountLinks}
         </div>
-        <details className="group relative ml-auto lg:hidden">
+        <div className="ml-auto lg:hidden">{searchLink}</div>
+        <details className="group lg:hidden">
           <summary className="cursor-pointer list-none rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white">{t.menu}</summary>
-          <div className="absolute right-0 top-12 z-40 flex w-64 flex-col gap-3 rounded-2xl bg-forest p-5 shadow-xl">
+          {/* On phones the menu opens as a full-width panel with large, easy-to-tap links. */}
+          <div className="fixed inset-x-3 top-[4.5rem] z-40 flex max-h-[calc(100dvh-6rem)] flex-col gap-1 overflow-y-auto rounded-3xl bg-forest p-4 shadow-2xl">
             {links.map(([href, label]) => (
-              <Link key={href} href={path(locale, href)} className="text-base font-medium text-mist hover:text-white">{label}</Link>
+              <Link key={href} href={path(locale, href)} className="rounded-2xl px-4 py-3 text-lg font-medium text-mist hover:bg-white/10 hover:text-white">{label}</Link>
             ))}
-            <div className="flex flex-wrap items-center gap-3 border-t border-white/10 pt-3">{accountLinks}</div>
-            <LanguageSwitcher locale={locale} label={t.language} />
+            <div className="mt-2 flex flex-wrap items-center gap-3 border-t border-white/10 px-4 pt-4">{accountLinks}</div>
+            <div className="px-4 pb-2 pt-3"><LanguageSwitcher locale={locale} label={t.language} /></div>
           </div>
         </details>
       </div>

@@ -13,6 +13,7 @@ Try it: register as a member, or open the admin panel with the shared read-only 
 | Area | What it does |
 |---|---|
 | Public site | Home, About, Programmes, News, Documents, Gallery, Contact — English, Russian, Tajik |
+| Search and sharing | Site search, reading time, share links, related news, RSS feed per language, installable on a phone |
 | Accounts | Sign-up with email confirmation, log in, password reset, profile and language |
 | Member area | Members-only news and documents, team chat with channels in real time |
 | Admin panel | Overview numbers, news editor in three languages with cover upload, document upload, member approval and roles, contact inbox |

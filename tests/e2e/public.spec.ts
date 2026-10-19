@@ -59,7 +59,7 @@ test("member pages require login", async ({ page }) => {
   await expect(page).toHaveURL(/\/en\/login/);
 });
 
-for (const path of ["/en", "/ru/news", "/tj/about", "/en/login", "/en/contact"]) {
+for (const path of ["/en", "/ru/news", "/tj/about", "/en/login", "/en/contact", "/ru/search?q=родник", "/en/news/notes-from-the-spring"]) {
   test(`no WCAG A/AA violations on ${path}`, async ({ page }) => {
     await page.goto(path);
     const { violations } = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
