@@ -16,7 +16,7 @@ function preferredLocale(request: NextRequest): Locale {
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const first = pathname.split("/")[1] ?? "";
-  if (!isLocale(first) && !pathname.startsWith("/auth/") && !pathname.startsWith("/api/")) {
+  if (!isLocale(first) && !pathname.startsWith("/auth/") && !pathname.startsWith("/api/") && pathname !== "/manifest.webmanifest") {
     const url = request.nextUrl.clone();
     url.pathname = `/${preferredLocale(request)}${pathname === "/" ? "" : pathname}`;
     return NextResponse.redirect(url);
@@ -39,7 +39,7 @@ export async function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     {
-      source: "/((?!_next/static|_next/image|media/|favicon|icon|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|webp|mp4|ico|pdf)$).*)",
+      source: "/((?!_next/static|_next/image|media/|icons/|favicon|icon|apple-icon|manifest.webmanifest|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|webp|mp4|ico|pdf)$).*)",
       missing: [{ type: "header", key: "next-router-prefetch" }, { type: "header", key: "purpose", value: "prefetch" }],
     },
   ],

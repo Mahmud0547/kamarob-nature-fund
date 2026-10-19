@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
 import "../globals.css";
@@ -10,6 +10,8 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+export const viewport: Viewport = { themeColor: "#1f3b2d" };
+
 export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
@@ -17,9 +19,13 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   return {
     metadataBase: new URL(SITE_URL),
     title: { default: t.title, template: `%s · Kamarob` },
+    appleWebApp: { capable: true, title: "Kamarob", statusBarStyle: "black-translucent" },
     description: t.description,
     openGraph: { title: t.title, description: t.description, images: ["/media/hero-1600.webp"], type: "website" },
-    alternates: { languages: { en: "/en", ru: "/ru", tg: "/tj", "x-default": "/en" } },
+    alternates: {
+      languages: { en: "/en", ru: "/ru", tg: "/tj", "x-default": "/en" },
+      types: { "application/rss+xml": `/${locale}/rss.xml` },
+    },
   };
 }
 

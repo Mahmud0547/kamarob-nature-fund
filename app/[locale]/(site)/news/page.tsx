@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PostCard } from "@/components/PostCard";
 import { latestPosts } from "@/lib/data";
-import { getMessages, isLocale } from "@/lib/i18n";
+import { getMessages, isLocale, path } from "@/lib/i18n";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/news">): Promise<Metadata> {
   const { locale } = await params;
@@ -17,7 +17,10 @@ export default async function NewsPage({ params }: PageProps<"/[locale]/news">) 
   return (
     <div className="container-page py-16 lg:py-24">
       <h1 className="font-serif text-[clamp(34px,5vw,52px)] font-semibold">{t.title}</h1>
-      <p className="mt-3 text-lg text-soft">{t.lead}</p>
+      <p className="mt-3 text-lg text-soft">
+        {t.lead}{" "}
+        <a href={path(locale, "/rss.xml")} className="whitespace-nowrap text-base font-semibold text-juniper hover:underline">{t.rss}</a>
+      </p>
       {posts.length ? (
         <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-3">{posts.map((p) => <PostCard key={p.id} post={p} locale={locale} />)}</div>
       ) : (

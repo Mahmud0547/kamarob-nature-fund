@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AdminShell, Pill } from "@/components/AdminShell";
 import { requireStaff } from "@/lib/auth";
+import { signupsByWeek } from "@/lib/data";
+import { formatDay } from "@/lib/format";
 import { format, getMessages, isLocale, localized, path } from "@/lib/i18n";
 import { createClient } from "@/lib/supabase/server";
 
@@ -16,11 +18,13 @@ export default async function AdminOverview({ params }: PageProps<"/[locale]/adm
   const profile = await requireStaff(locale);
   const t = getMessages(locale).admin;
   const supabase = await createClient();
-  const [{ data: overview }, { data: posts }, { data: pending }] = await Promise.all([
+  const [{ data: overview }, { data: posts }, { data: pending }, weeks] = await Promise.all([
     supabase.rpc("admin_overview"),
     supabase.from("posts").select("id, slug, title, status, visibility").order("updated_at", { ascending: false }).limit(6),
     supabase.from("profiles").select("id, full_name, created_at").eq("status", "pending").order("created_at").limit(5),
+    signupsByWeek(8),
   ]);
+  const peak = Math.max(1, ...weeks.map((w) => w.count));
   const o = (overview ?? {}) as Partial<Overview>;
   const cards = [
     [t.stats.posts, o.posts_published, format(t.stats.drafts, { count: o.posts_draft ?? 0 })],
@@ -43,6 +47,22 @@ export default async function AdminOverview({ params }: PageProps<"/[locale]/adm
           </div>
         ))}
       </dl>
+      <section aria-labelledby="signups" className="mt-6 rounded-2xl border border-line bg-white p-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 id="signups" className="font-serif text-xl font-semibold">{t.signups}</h2>
+          <p className="text-sm text-soft">{t.signupsHint}</p>
+        </div>
+        {/* A plain bar chart: each bar is a week, its height is the number of new members. */}
+        <ol className="mt-6 flex h-40 items-end gap-2">
+          {weeks.map((w) => (
+            <li key={w.start} className="flex h-full flex-1 flex-col items-center justify-end gap-1">
+              <span className="text-sm font-semibold">{w.count}</span>
+              <span className="w-full rounded-t-lg bg-juniper" style={{ height: `${Math.max(4, (w.count / peak) * 100)}%` }} />
+              <span className="text-xs text-soft">{formatDay(w.start, locale)}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
       <div className="mt-6 grid gap-6 xl:grid-cols-[1fr_380px]">
         <section className="rounded-2xl border border-line bg-white p-6">
           <h2 className="font-serif text-xl font-semibold">{t.recentPosts}</h2>
